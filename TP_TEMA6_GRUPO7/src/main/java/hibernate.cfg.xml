@@ -14,8 +14,8 @@
         
         <mapping class="hibernate.entidad.Autor" resource="hibernate/entidad/Autor.hbm.xml"/>
         <mapping class="hibernate.entidad.Biblioteca"/>
-        <mapping class="hibernate.entidad.Genero"/>
-        <mapping class="hibernate.entidad.Libro"/>
+        <mapping class="hibernate.entidad.Genero" resource="hibernate/entidad/Genero.hbm.xml"/>
+        <mapping class="hibernate.entidad.Libro" resource="hibernate/entidad/Libro.hbm.xml"/>
         <mapping class="hibernate.entidad.Nacionalidad" resource="hibernate/entidad/Nacionalidad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
