@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/05/2022 20:35:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="hibernate.entidad.Libro" table="LIBRO">
+        <id name="idioma" type="java.lang.String">
+            <column name="IDIOMA" />
+            <generator class="assigned" />
+        </id>
+        <property name="isbn" type="int">
+            <column name="ISBN" />
+        </property>
+        <property name="titulo" type="java.lang.String">
+            <column name="TITULO" />
+        </property>
+        <property name="fecha_lanazamiento" type="java.sql.Date">
+            <column name="FECHA_LANAZAMIENTO" />
+        </property>
+        <property name="cant_paginas" type="int">
+            <column name="CANT_PAGINAS" />
+        </property>
+        <many-to-one name="autor" class="hibernate.entidad.Autor" fetch="join">
+            <column name="AUTOR" />
+        </many-to-one>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+        <list name="generos" inverse="false" table="GENERO" lazy="true">
+            <key>
+                <column name="IDIOMA" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="hibernate.entidad.Genero" />
+        </list>
+    </class>
+</hibernate-mapping>

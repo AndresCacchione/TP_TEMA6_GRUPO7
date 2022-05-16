@@ -5,16 +5,17 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.password">edumaster</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/BDBiblioteca?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
         <property name="hbm2ddl.auto">create</property>
-        <mapping class="hibernate.entidad.Autor"/>
+        
+        <mapping class="hibernate.entidad.Autor" resource="hibernate/entidad/Autor.hbm.xml"/>
         <mapping class="hibernate.entidad.Biblioteca"/>
-        <mapping class="hibernate.entidad.Genero"/>
-        <mapping class="hibernate.entidad.Libro"/>
-        <mapping class="hibernate.entidad.Nacionalidad"/>
+        <mapping class="hibernate.entidad.Genero" resource="hibernate/entidad/Genero.hbm.xml"/>
+        <mapping class="hibernate.entidad.Libro" resource="hibernate/entidad/Libro.hbm.xml"/>
+        <mapping class="hibernate.entidad.Nacionalidad" resource="hibernate/entidad/Nacionalidad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
