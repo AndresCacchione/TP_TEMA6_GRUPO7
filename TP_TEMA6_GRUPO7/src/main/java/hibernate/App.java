@@ -1,29 +1,53 @@
 package hibernate;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-    	 SessionFactory sessionFactory;
+import org.hibernate.Session;
+
+import dao.ConfigHibernate;
+import hibernate.entidad.Autor;
+import hibernate.entidad.Genero;
+import hibernate.entidad.Libro;
+import hibernate.entidad.Nacionalidad;
+
+public class App {
+	
+    public static void main( String[] args ) {
+    	
+    	ConfigHibernate cHibernate =new ConfigHibernate();
+    	Session session =cHibernate.abrirConexion();
+
+    	session.beginTransaction();
          
-         Configuration configuration = new Configuration();
-         configuration.configure();
+         Nacionalidad nacionalidad =new Nacionalidad(1,"Argentina");
+         session.save(nacionalidad);
          
-         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+         Autor autor=new Autor();
+         autor.setId(1);
+         autor.setNombre("juan");
+         autor.setNacionalidad(nacionalidad);
+         session.save(autor);
          
-         Session session = sessionFactory.openSession();
+         Genero genero= new Genero(1,"Misterio");   
+         Genero genero2= new Genero(1,"Accion");  
+          ArrayList<Genero> generos=new ArrayList<Genero>();
+           generos.add(genero);
+           generos.add(genero2);
+           session.save(generos);
+           
+         Date fecha = new Date(0);
+         Libro libro =new Libro(123,"Asesinato en el orient express",fecha,"ingles",200,autor,"muy bueno",generos);
          
-         session.beginTransaction();
+         session.save(libro);
          
-         session.close();
+         session.getTransaction().commit();
+         cHibernate.cerrarSession();;    
          
-         sessionFactory.close();
+
+         
     }
 }
+
+
