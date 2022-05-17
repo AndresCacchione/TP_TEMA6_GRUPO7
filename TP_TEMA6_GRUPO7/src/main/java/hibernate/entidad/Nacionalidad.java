@@ -1,7 +1,12 @@
 package hibernate.entidad;
 
-public class Nacionalidad {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Nacionalidad {
+	
+	@Id
 	int id;
 	String descripcion;
 	

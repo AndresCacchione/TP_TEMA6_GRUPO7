@@ -1,7 +1,7 @@
 package hibernate.entidad;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Libro implements Serializable {
@@ -21,9 +22,11 @@ public class Libro implements Serializable {
 	@Id
 	private int isbn;
 	private String titulo;
-	private LocalDate fechaLanzamiento;
+	private Date fechaLanzamiento;
 	private String idioma;
 	private int cantidadPaginas;
+	@ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="id_autor")
 	private Autor autor;
 	private String descripcion;
 	@ManyToMany(cascade= {CascadeType.ALL})
@@ -36,7 +39,7 @@ public class Libro implements Serializable {
 		super();
 	}
 	
-	public Libro(int isbn, String titulo, LocalDate fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
+	public Libro(int isbn, String titulo, Date fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
 			String descripcion, Set<Genero> setGeneros) {
 		super();
 		this.isbn = isbn;
@@ -63,10 +66,10 @@ public class Libro implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public LocalDate getFechaLanzamiento() {
+	public Date getFechaLanzamiento() {
 		return fechaLanzamiento;
 	}
-	public void setFechaLanzamiento(LocalDate fechaLanzamiento) {
+	public void setFechaLanzamiento(Date fechaLanzamiento) {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 	public String getIdioma() {
