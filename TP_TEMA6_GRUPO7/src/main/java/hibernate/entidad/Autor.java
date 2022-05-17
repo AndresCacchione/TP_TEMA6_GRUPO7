@@ -17,7 +17,22 @@ public class Autor {
 	private Nacionalidad nacionalidad;
 	
 	private String email;
+	
+	//Constructores
+	public Autor() {
+		super();
+	}
 
+	public Autor(int id, String nombre, String apellido, Nacionalidad nacionalidad, String email) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.nacionalidad = nacionalidad;
+		this.email = email;
+	}
+
+	//Getters y Setters
 	public int getId() {
 		return id;
 	}
@@ -57,6 +72,6 @@ public class Autor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 
+	
 }
