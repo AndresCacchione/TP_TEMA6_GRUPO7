@@ -25,7 +25,6 @@ public class ConfigHibernate {
     
     public void cerrarSession() {
         session.close();
-        cerrarSessionFactory();
     }
     
     protected void cerrarSessionFactory() {
