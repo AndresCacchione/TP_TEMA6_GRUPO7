@@ -1,10 +1,9 @@
 package hibernate.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,7 +21,7 @@ public class Libro implements Serializable {
 	@Id
 	private int isbn;
 	private String titulo;
-	private Date fechaLanzamiento;
+	private LocalDate fechaLanzamiento;
 	private String idioma;
 	private int cantidadPaginas;
 	private Autor autor;
@@ -37,8 +36,8 @@ public class Libro implements Serializable {
 		super();
 	}
 	
-	public Libro(int isbn, String titulo, Date fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
-			String descripcion, HashSet<Genero> setGeneros) {
+	public Libro(int isbn, String titulo, LocalDate fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
+			String descripcion, Set<Genero> setGeneros) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
@@ -64,10 +63,10 @@ public class Libro implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Date getFechaLanzamiento() {
+	public LocalDate getFechaLanzamiento() {
 		return fechaLanzamiento;
 	}
-	public void setFechaLanzamiento(Date fechaLanzamiento) {
+	public void setFechaLanzamiento(LocalDate fechaLanzamiento) {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 	public String getIdioma() {
