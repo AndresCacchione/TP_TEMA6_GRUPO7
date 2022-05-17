@@ -18,12 +18,12 @@ public class ConfigHibernate {
         sessionFactory = configuration.buildSessionFactory(serviceregistry);
     }
     
-    protected Session abrirConexion() {
+    public Session abrirConexion() {
         session = sessionFactory.openSession();
         return session;
     }
     
-    protected void cerrarSession() {
+    public void cerrarSession() {
         session.close();
         cerrarSessionFactory();
     }

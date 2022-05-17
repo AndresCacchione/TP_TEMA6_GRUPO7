@@ -11,10 +11,11 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
         <property name="hbm2ddl.auto">create</property>
-        <mapping class="hibernate.entidad.Autor"/>
+        
+        <mapping class="hibernate.entidad.Autor" resource="hibernate/entidad/Autor.hbm.xml"/>
         <mapping class="hibernate.entidad.Biblioteca"/>
-        <mapping class="hibernate.entidad.Genero"/>
+        <mapping class="hibernate.entidad.Genero" />
         <mapping class="hibernate.entidad.Libro"/>
-        <mapping class="hibernate.entidad.Nacionalidad"/>
+        <mapping class="hibernate.entidad.Nacionalidad" resource="hibernate/entidad/Nacionalidad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

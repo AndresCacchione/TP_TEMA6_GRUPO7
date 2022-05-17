@@ -1,28 +1,38 @@
 package hibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import dao.ConfigHibernate;
+import hibernate.entidad.Autor;
+import hibernate.entidad.Genero;
+import hibernate.entidad.Libro;
+import hibernate.entidad.Nacionalidad;
+import java.time.LocalDate;
 
 public class App {
 	
     public static void main( String[] args ) {
-    	 SessionFactory sessionFactory;
+    	
+    	ConfigHibernate cHibernate = new ConfigHibernate();
+    	Session session = cHibernate.abrirConexion();
+
+    	session.beginTransaction();
          
-         Configuration configuration = new Configuration();
-         configuration.configure();
+    	Autor autorPrueba = new Autor(1, "Victor","Miller", new Nacionalidad(1, "estadounidense"),"victor.miller@jasonvoorhees.com");
+    	Set<Genero> setGeneros = new HashSet<Genero>();
+         Genero terror = new Genero(1,"Terror");
+         setGeneros.add(terror);
          
-         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+         Libro libro = new Libro(4432,"Jason Voorhees", LocalDate.of(2001, 12, 15), "Inglés", 350, autorPrueba,"Libro que no te deja dormir", setGeneros);
          
-         Session session = sessionFactory.openSession();
+         session.save(libro);
+
+         session.getTransaction().commit();
+         cHibernate.cerrarSession();   
          
-         session.beginTransaction();
-         
-         session.close();
-         
-         sessionFactory.close();
     }
 }
+
+
