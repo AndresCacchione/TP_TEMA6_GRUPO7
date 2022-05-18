@@ -19,23 +19,12 @@ import hibernate.entidad.Nacionalidad;
 public class App {
 	
 	public static void main( String[] args ) {
-		ConfigHibernate cHibernate = new ConfigHibernate();
-		Session session = cHibernate.abrirConexion();
-		session.beginTransaction();
     	Nacionalidad nacionalidad = new Nacionalidad(1, "estadounidense");
     	DaoNacionalidad.Add(nacionalidad);
-        session.getTransaction().commit();
-        cHibernate.cerrarSession();
         
-        cHibernate = new ConfigHibernate();
-        Session session2 = cHibernate.abrirConexion();
-    	session2.beginTransaction();
     	Autor autorPrueba = new Autor(1, "Victor","Miller", nacionalidad,"victor.miller@jasonvoorhees.com");
     	DaoAutor.Add(autorPrueba );
-    	session2.getTransaction().commit();
-        cHibernate.cerrarSession();
     	
-
     	Set<Genero> setGeneros = new HashSet<Genero>();
         Genero terror = new Genero(1,"Terror");
         DaoGenero.Add(terror);
