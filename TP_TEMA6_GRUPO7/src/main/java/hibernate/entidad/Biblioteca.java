@@ -23,7 +23,7 @@ public class Biblioteca implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="BIBLIOTECA_ID")
 	private int id;
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name="LIBRO_ISBN")
 	private Libro libro;
 	@Column(name="FECHA_ALTA")
