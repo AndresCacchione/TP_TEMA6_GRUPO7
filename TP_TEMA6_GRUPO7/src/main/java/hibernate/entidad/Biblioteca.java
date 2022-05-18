@@ -21,10 +21,10 @@ public class Biblioteca implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="LIBRARY_ID")
+	@Column(name="BIBLIOTECA_ID")
 	private int id;
 	@ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name="LIBRO_ID")
+	@JoinColumn(name="LIBRO_ISBN")
 	private Libro libro;
 	@Column(name="FECHA_ALTA")
 	private Date fechaAlta;
