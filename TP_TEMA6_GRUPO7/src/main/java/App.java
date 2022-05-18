@@ -1,4 +1,4 @@
-package hibernate;
+
 
 
 import java.sql.Date;
@@ -7,9 +7,7 @@ import java.util.Set;
 import org.hibernate.Session;
 import dao.ConfigHibernate;
 import dao.DaoGenero;
-import dao.DaoAutor;
 import dao.DaoLibro;
-import dao.DaoNacionalidad;
 import hibernate.entidad.Autor;
 import hibernate.entidad.Genero;
 import hibernate.entidad.Libro;
@@ -22,16 +20,16 @@ public class App {
 		ConfigHibernate cHibernate = new ConfigHibernate();
 		Session session = cHibernate.abrirConexion();
 		session.beginTransaction();
-    	Nacionalidad nacionalidad = new Nacionalidad(1, "estadounidense");
-    	DaoNacionalidad.Add(nacionalidad);
+    	Nacionalidad nacionalidad = new Nacionalidad(2, "estadounidense");
+    	session.save(nacionalidad);
         session.getTransaction().commit();
         cHibernate.cerrarSession();
         
         cHibernate = new ConfigHibernate();
         Session session2 = cHibernate.abrirConexion();
     	session2.beginTransaction();
-    	Autor autorPrueba = new Autor(1, "Victor","Miller", nacionalidad,"victor.miller@jasonvoorhees.com");
-    	DaoAutor.Add(autorPrueba );
+    	Autor autorPrueba = new Autor(2, "Victor","Miller", nacionalidad,"victor.miller@jasonvoorhees.com");
+    	session2.save(autorPrueba);
     	session2.getTransaction().commit();
         cHibernate.cerrarSession();
     	
