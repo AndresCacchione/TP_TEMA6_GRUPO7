@@ -24,6 +24,24 @@ public class DaoLibro {
 		cHibernate.cerrarSession();
 	}
 	
+	public static void ReadBorrowedBooks() {
+		cHibernate = new ConfigHibernate();
+		session = cHibernate.abrirConexion();
+		
+		List<Object[]> listaLibros = (List<Object[]>) session.createQuery("SELECT bib.id, bib.fechaAlta, bib.libro.titulo FROM Biblioteca AS bib INNER JOIN bib.libro WHERE bib.estado = 2").list();
+		
+		System.err.println("Libros prestados: ");
+		for (Object[] obj : listaLibros) {
+			int id = (Integer) obj[0];
+			Date fechaAlta = (Date) obj[1];
+			String titulo = (String) obj[2];
+			
+			System.out.println("Libro prestado: Titulo: " + titulo + ", Fecha de alta: " + fechaAlta + ", Id biblioteca: " + id);
+		}
+		
+		cHibernate.cerrarSession();
+	}
+	
 	public static void Add(Libro libro) {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
