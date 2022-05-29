@@ -110,5 +110,9 @@ public class Libro implements Serializable {
 				+ idioma + ", cantidad de páginas: " + cantidadPaginas + ", autor: " + autor + ", descripción: " + descripcion
 				+ ", géneros: " + setGeneros.toString() + ".";
 	}
-
+	
+	public String toStringLibroPropp() {
+		return "Isbn: " + isbn + ", titulo: " + titulo + ", fecha de lanzamiento: " + fechaLanzamiento + ", idioma: "
+				+ idioma + ", cantidad de páginas: " + cantidadPaginas + ", descripción: " + descripcion + ".";
+	}
 }
