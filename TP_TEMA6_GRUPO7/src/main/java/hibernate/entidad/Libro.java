@@ -115,4 +115,5 @@ public class Libro implements Serializable {
 		return "Isbn: " + isbn + ", titulo: " + titulo + ", fecha de lanzamiento: " + fechaLanzamiento + ", idioma: "
 				+ idioma + ", cantidad de páginas: " + cantidadPaginas + ", descripción: " + descripcion + ".";
 	}
+	
 }
