@@ -75,5 +75,10 @@ public class Autor {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor: id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", " + nacionalidad.toString()
+				+ ", email=" + email;
+	}
 	
 }
