@@ -22,8 +22,8 @@ public class App {
 	
 	public static void main( String[] args ) {
     	Nacionalidad nacionalidad1 = new Nacionalidad(1, "estadounidense");
-    	Nacionalidad nacionalidad2 = new Nacionalidad(2, "argentino");
-    	Nacionalidad nacionalidad3 = new Nacionalidad(3, "canadience");
+    	Nacionalidad nacionalidad2 = new Nacionalidad(2, "argentina");
+    	Nacionalidad nacionalidad3 = new Nacionalidad(3, "argentina");
     	Nacionalidad nacionalidad4 = new Nacionalidad(4, "japones");
     	Nacionalidad nacionalidad5 = new Nacionalidad(5, "ruso");
     	DaoNacionalidad.Add(nacionalidad1);
