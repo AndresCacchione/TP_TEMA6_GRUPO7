@@ -82,8 +82,8 @@ public class App {
         
         Biblioteca b1= new Biblioteca(libro1, new Date(2022,04,18),1);
         Biblioteca b2= new Biblioteca(libro2, new Date(2022,04,19),1);
-        Biblioteca b3= new Biblioteca(libro3, new Date(2022,04,28),1);
-        Biblioteca b4= new Biblioteca(libro4, new Date(2022,05,1),1);
+        Biblioteca b3= new Biblioteca(libro3, new Date(2022,04,28),2);
+        Biblioteca b4= new Biblioteca(libro4, new Date(2022,05,1),2);
         Biblioteca b5= new Biblioteca(libro5, new Date(2022,05,8),1);
         DaoBiblioteca.Add(b1);
         DaoBiblioteca.Add(b2);
