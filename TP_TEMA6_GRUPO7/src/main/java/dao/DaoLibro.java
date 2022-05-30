@@ -59,6 +59,18 @@ public class DaoLibro {
 		cHibernate.cerrarSession();
 	}
 	
+	
+	public static void ReadBookMaxISBN() {
+		cHibernate = new ConfigHibernate();
+		session = cHibernate.abrirConexion();
+		int MaxIsbn =  (Integer)session.createQuery("select max(isbn)FROM Libro").uniqueResult();
+		
+		System.err.println("Libro con isbn mas alto es : " + MaxIsbn);
+	
+		
+		cHibernate.cerrarSession();
+	}
+	
 	public static void Add(Libro libro) {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
