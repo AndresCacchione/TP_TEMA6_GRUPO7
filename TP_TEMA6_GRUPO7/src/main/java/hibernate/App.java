@@ -64,7 +64,7 @@ public class App {
         setGeneros3.add(teatro);
         setGeneros3.add(terror);
         
-        Libro libro1 = new Libro(4432,"Jason Voorhees", new Date(2001,12,20), "Inglés", 350, autorPrueba1,"Libro que no te deja dormir", setGeneros1);
+        Libro libro1 = new Libro(12345,"Jason Voorhees", new Date(2001,12,20), "Inglés", 350, autorPrueba1,"Libro que no te deja dormir", setGeneros1);
         Libro libro2 = new Libro(4433,"Harry Potter", new Date(1999,10,15), "Español", 350, autorPrueba2,"Libro sobre magos", setGeneros1);
         Libro libro3 = new Libro(4434,"Lords Of the Ring", new Date(1910,9,30), "Japones", 1350, autorPrueba3,"Libro de aventuras", setGeneros2);
         Libro libro4 = new Libro(4435,"Jurassic Park", new Date(1989,8,12), "Italiano", 300, autorPrueba4,"Libro que de dinosaurios", setGeneros3);

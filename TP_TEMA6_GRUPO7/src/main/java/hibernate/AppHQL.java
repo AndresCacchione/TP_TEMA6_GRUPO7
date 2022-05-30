@@ -17,7 +17,16 @@ public class AppHQL {
 		/* 3) Mostrar todos los autores que sean de nacionalidad Argentina
 		Los campos que se deben mostrar son todos los pertenecientes a la clase Autor y
 		Nacionalidad */
-		DaoAutor.ReadAutorByNacionalidad("argentina");
+//		DaoAutor.ReadAutorByNacionalidad("argentina");
+		
+		/* 4) Mostrar el libro con ISBN 12345 junto con todos sus géneros
+		Los campos que se deben mostrar la información de la clase libro junto con todos sus
+		géneros. */
+		//DaoLibro.ReadBookByISBN(12345);
+		
+		/*5) Mostrar el libro que tenga el mayor número de ISBN
+		El único campo que se debe traer en la consulta es ISBN.*/
+		DaoLibro.ReadBookMaxISBN();
 		
 	}
 
