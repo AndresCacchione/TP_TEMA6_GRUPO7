@@ -12,6 +12,22 @@ public class DaoLibro {
 	private static ConfigHibernate cHibernate;
 	private static Session session;
 	
+	public static void CantidadLibrosPorGenero() {
+		cHibernate = new ConfigHibernate();
+		session = cHibernate.abrirConexion();
+		List<Genero> listaGenero = (List<Genero>) session.createQuery("FROM Genero").list();
+		
+		System.err.println("Cantidad de Generos por libros: ");
+		for (Genero g : listaGenero) {
+			//int cantidad = (Integer) session.createQuery("select count(l.isbn) FROM Libro l where l.setGeneros.id='"+g.getId()+"'").uniqueResult();
+			Long cantidad = (Long) session.createQuery("select count(*) FROM Libro l INNER JOIN l.setGeneros g where g.id="+g.getId()).uniqueResult();
+			int id = (Integer) g.getId();
+			String descripcion = g.getDescripcion();
+			System.out.println("Genero: ID: " + id + ", descripcion: " + descripcion + ", cantidad de libros: " + cantidad);
+		}
+		cHibernate.cerrarSession();
+	}
+	
 	public static void ReadClassOrderAscByISBN() {
 		cHibernate = new ConfigHibernate();
 		session = cHibernate.abrirConexion();
@@ -55,6 +71,18 @@ public class DaoLibro {
 		for (Genero genero : libro.getSetGeneros()) {
 			System.out.println(genero.toString());
 		}
+		
+		cHibernate.cerrarSession();
+	}
+	
+	
+	public static void ReadBookMaxISBN() {
+		cHibernate = new ConfigHibernate();
+		session = cHibernate.abrirConexion();
+		int MaxIsbn =  (Integer)session.createQuery("select max(isbn)FROM Libro").uniqueResult();
+		
+		System.err.println("Libro con isbn mas alto es : " + MaxIsbn);
+	
 		
 		cHibernate.cerrarSession();
 	}
