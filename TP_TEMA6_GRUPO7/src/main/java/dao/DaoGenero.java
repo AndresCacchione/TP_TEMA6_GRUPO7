@@ -1,7 +1,10 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
+import hibernate.entidad.Autor;
 import hibernate.entidad.Genero;
 
 public class DaoGenero {
